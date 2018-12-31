@@ -1,0 +1,3 @@
+rootProject.name = 'hatch01'
+
+include ':app'
