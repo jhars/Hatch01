@@ -1,19 +1,23 @@
-import React, {Component} from 'react';
-import {Platform, View} from 'react-native';
+  import React, {Component} from 'react';
+import {View} from 'react-native';
 import WelcomeScreen from './src/components/WelcomeScreen';
 
-// const instructions = Platform.select({
-//   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-//   android:
-//     'Double tap R on your keyboard to reload,\n' +
-//     'Shake or press menu button for dev menu',
-// });
+import { Navigation } from 'react-native-navigation';
 
-type Props = {};
+
+
 export default class App extends Component<Props> {
+  constructor(props) {
+    super(props);
+    Navigation.events().bindComponent(this);
+    this.state = {
+      text: 'nothing yet'
+    };
+  }
+
   render() {
     return (
-        <WelcomeScreen/>
+      <Navigation/>
     );
   }
 }
