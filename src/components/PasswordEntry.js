@@ -8,7 +8,7 @@ import {
   TouchableOpacity
 } from 'react-native';
 
-export default class PhoneNumberInput extends Component {
+export default class PasswordEntry extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -17,36 +17,18 @@ export default class PhoneNumberInput extends Component {
   }
 
   pressFunction() {
-    console.log('########## submit phone number ====>>>>  : ' + this.state.text);
-
-    Navigation.push(this.props.componentId, {
-      component: {
-        name: 'navigation.PasswordEntry',
-        passProps: {
-          text: this.state.text
-        },
-        options: {
-          topBar: {
-            title: {
-              text: this.state.text
-            }
-          }
-        }
-      }
-    });
+    console.log('########## submit password ====>>>>  : ' + this.state.text);
   }
 
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.header}>Please Enter Your Phone Number</Text>
+        <Text style={styles.header}>Please Enter Your Password</Text>
 
       <TextInput
         style={styles.textInput}
         onChangeText={(text) => this.setState({text})}
         value={this.state.text}
-        dataDetectorTypes='phoneNumber'
-        keyboardType='phone-pad'
       />
 
       <TouchableOpacity

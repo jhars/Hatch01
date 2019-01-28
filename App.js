@@ -1,10 +1,7 @@
-  import React, {Component} from 'react';
+import { Navigation } from 'react-native-navigation';
+import React, {Component} from 'react';
 import {View} from 'react-native';
 import WelcomeScreen from './src/components/WelcomeScreen';
-
-import { Navigation } from 'react-native-navigation';
-
-
 
 export default class App extends Component<Props> {
   constructor(props) {
