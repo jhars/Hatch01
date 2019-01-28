@@ -17,27 +17,23 @@ export default class PasswordEntry extends Component {
   }
 
   pressFunction() {
-    console.log('########## submit password ====>>>>  : ' + this.state.text);
+    console.log('please submit password ====>>>>  : ' + this.state.text);
   }
+
+
 
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.header}>Please Enter Your Password</Text>
-
-      <TextInput
-        style={styles.textInput}
-        onChangeText={(text) => this.setState({text})}
-        value={this.state.text}
-      />
-
-      <TouchableOpacity
-        onPress={this.pressFunction.bind(this)}>
-        <Text>
-          SUBMIT
-        </Text>
-      </TouchableOpacity>
-
+        <TextInput
+          style={styles.textInput}
+          onChangeText={(text) => this.setState({text})}
+          value={this.state.text}/>
+        <TouchableOpacity
+          onPress={this.pressFunction.bind(this)}>
+          <Text>SUBMIT</Text>
+        </TouchableOpacity>
       </View>
     );
   }

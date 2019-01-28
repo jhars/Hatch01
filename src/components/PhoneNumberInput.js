@@ -18,22 +18,26 @@ export default class PhoneNumberInput extends Component {
 
   pressFunction() {
     console.log('########## submit phone number ====>>>>  : ' + this.state.text);
+    console.log('LENGTH ====>>>>  : ' + this.state.text.length);
 
-    Navigation.push(this.props.componentId, {
-      component: {
-        name: 'navigation.PasswordEntry',
-        passProps: {
-          text: this.state.text
-        },
-        options: {
-          topBar: {
-            title: {
-              text: this.state.text
+    if (this.state.text.length == 10) {
+
+      Navigation.push(this.props.componentId, {
+        component: {
+          name: 'navigation.PasswordEntry',
+          passProps: {
+            text: this.state.text
+          },
+          options: {
+            topBar: {
+              title: {
+                text: this.state.text
+              }
             }
           }
         }
-      }
-    });
+      });
+    }
   }
 
   render() {
@@ -41,20 +45,21 @@ export default class PhoneNumberInput extends Component {
       <View style={styles.container}>
         <Text style={styles.header}>Please Enter Your Phone Number</Text>
 
-      <TextInput
-        style={styles.textInput}
-        onChangeText={(text) => this.setState({text})}
-        value={this.state.text}
-        dataDetectorTypes='phoneNumber'
-        keyboardType='phone-pad'
-      />
+        <TextInput
+          style={styles.textInput}
+          onChangeText={(text) => this.setState({text})}
+          value={this.state.text}
+          dataDetectorTypes='phoneNumber'
+          keyboardType='phone-pad'
+        />
 
-      <TouchableOpacity
-        onPress={this.pressFunction.bind(this)}>
-        <Text>
-          SUBMIT
-        </Text>
-      </TouchableOpacity>
+        <TouchableOpacity
+          disabled={false}
+          onPress={this.pressFunction.bind(this)}>
+          <Text>
+            SUBMIT
+          </Text>
+        </TouchableOpacity>
 
       </View>
     );
